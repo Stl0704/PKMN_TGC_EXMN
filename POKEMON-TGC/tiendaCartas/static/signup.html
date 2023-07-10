@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>POKEMON TGC</title>
+</head>
+
+<style>
+    body {
+        background-image: url('https://img.freepik.com/vector-premium/diseno-banner-abstracto-rayas-negras-amarillas-gris-oscuro-fondo-vector-tecnologia-geometrica_181182-14043.jpg');
+        background-size: cover;
+    }
+
+    .container {
+        background-color: #000000;
+        /* Color de fondo para el div */
+        border-radius: 20px;
+        height: 600px;
+    }
+
+    .login-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 10px solid #faf8f8;
+        background-color: #fbff57;
+        height: 70vh;
+        border-radius: 20px;
+    }
+
+    .border {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ffffff;
+        /* Estilo del borde para el span */
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    #myForm {
+        margin: 20px;
+    }
+
+    .form-group label {
+        color: rgb(253, 253, 253);
+        /* Color del texto del label */
+    }
+
+    .form-control {
+        border-color: rgb(0, 0, 0);
+        /* Color del borde del input */
+    }
+
+    .invalid-feedback {
+        color: red;
+        /* Color del mensaje de error */
+    }
+
+    .form-check-label {
+        color: green;
+        /* Color del texto del checkbox */
+    }
+
+    .btn-primary {
+        background-color: blue;
+        /* Color de fondo del botón */
+        border-color: blue;
+        /* Color del borde del botón */
+    }
+</style>
+
+
+
+<body>
+    <!-- banner1  -->
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11427705-3dd3-423a-a8ca-1968b97f1101/d6d4a5k-f4c9b43b-b2fe-4b59-bdc3-ba974fff6c3b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzExNDI3NzA1LTNkZDMtNDIzYS1hOGNhLTE5NjhiOTdmMTEwMVwvZDZkNGE1ay1mNGM5YjQzYi1iMmZlLTRiNTktYmRjMy1iYTk3NGZmZjZjM2IucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pHbSmJIuVrJheeVadShSncEOsTbAvbr9zr12zamcZb0"
+        alt="Banner de ejemplo" style="width:100%;">
+
+    <!-- banner1  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}" style="color: yellow;"><img
+                src="https://cdn.icon-icons.com/icons2/896/PNG/64/pokemon_go_play_game_cinema_film_movie_2_icon-icons.com_69159.png"
+                alt="logo" class="logo-img"> POKEMON TGC
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}" style="color: yellow">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'compra' %}" style="color: yellow">Producto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'carrito' %}" style="color: yellow">Carrito de Compras </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false" style="color: yellow">
+                        Sesión
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'signin' %}">Iniciar secion</a>
+                        <a class="dropdown-item" href="{% url 'signup' %}">Crear cuenta</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <!-- Jumbotron Registro -->
+
+
+    <div class="jumbotron jumbotron-fluid"
+        style="background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-negro-degradado_23-2149209060.jpg'); color: white">
+        <div class="container1 text-center">
+            <h1 class="display-4 font-weight-bold">Registro</h1>
+            <p class="lead">Registrate para acceder a tu cuenta y obtener tus cartas favoritas!</p>
+        </div>
+    </div>
+
+
+
+    <!-- Formulario Registro -->
+
+
+    <div class="container">
+        <form id="myForm" method="POST" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="validationServer01">Nombre Completo:</label>
+                <input type="text" class="form-control" id="validationServer01" name="nombreu" required>
+                <div class="invalid-feedback">
+                    Porfavor, Ingrese su nombre completo
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="validationServerEmail">E - Mail</label>
+                <input type="email" class="form-control" id="validationServerEmail" name="email" required>
+                <div class="invalid-feedback">
+                    Ingrese un email valido porfavor, con "@" .
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="validationServerAddress">Direccion</label>
+                <input type="text" class="form-control" id="validationServerAddress" name="direccion" required>
+                <div class="invalid-feedback">
+                    Porfavor ingrese una direccion valida.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="validationServerPassword">Contraseña</label>
+                <input type="password" class="form-control" id="validationServerPassword" name="contrasena" required>
+                <div class="invalid-feedback">
+                    Ingrese una contraseña.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="validationServerConfirmPassword">Confirme Contraseña</label>
+                <input type="password" class="form-control" id="validationServerConfirmPassword"
+                    name="repetir_contrasena" required>
+                <div class="invalid-feedback">
+                    Porfavor confirme la contraseña.
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
+                    <label class="form-check-label" for="invalidCheck3">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" id = "agregar">Registrar!</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- footer  -->
+
+    <footer style="background-color: #fbff57;" style=" border-color: black;">
+        <p style="font-size: 20px; font-weight: bold;"><img
+                src="https://cdn-icons-png.flaticon.com/128/3064/3064155.png" alt="" class="logo-img" width="50">COMPRA
+            SEGURA ✓✓✓</p>
+
+        <hr>
+        <div class="footer-icons-container row">
+            <p><a HREF="https://es-la.facebook.com/"> <img src="https://cdn-icons-png.flaticon.com/128/1384/1384005.png"
+                        width="30"> </a>
+                <a HREF="https://www.instagram.com/"> <img src="https://cdn-icons-png.flaticon.com/128/1384/1384015.png"
+                        width="30"></a>
+                <a HREF="https://twitter.com/"> <img src="https://cdn-icons-png.flaticon.com/128/4494/4494465.png"
+                        width="30"></a>
+            </p>
+            <br>
+            <p>Author: Miguel Montero y Mario Fica</p>
+            <br>
+            <p><a href="Correo contacto: pokemontgc@pokemon.pkm">pokemontgc@pokemon.pkm</a></p>
+        </div>
+    </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+
+
+<!-- JS PARA FORMULARO  -->
+
+<script>
+    // Obtener el formulario y los campos de entrada
+    const form = document.getElementById('myForm');
+    const firstNameInput = document.getElementById('validationServer01');
+    const lastNameInput = document.getElementById('validationServer02');
+    const emailInput = document.getElementById('validationServerEmail');
+    const addressInput = document.getElementById('validationServerAddress');
+    const passwordInput = document.getElementById('validationServerPassword');
+    const confirmPasswordInput = document.getElementById('validationServerConfirmPassword');
+    const agreeCheckbox = document.getElementById('invalidCheck3');
+
+    // Desactivar la validación inicial del formulario
+    form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        // Validar la igualdad de las contraseñas
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            confirmPasswordInput.setCustomValidity("Passwords do not match");
+        } else {
+            confirmPasswordInput.setCustomValidity('');
+        }
+
+        form.classList.add('was-validated');
+    });
+
+    // Validar los campos de entrada en tiempo real
+    firstNameInput.addEventListener('input', function () {
+        if (firstNameInput.value.trim() === '') {
+            firstNameInput.classList.add('is-invalid');
+        } else {
+            firstNameInput.classList.remove('is-invalid');
+            firstNameInput.classList.add('is-valid');
+        }
+    });
+
+    lastNameInput.addEventListener('input', function () {
+        if (lastNameInput.value.trim() === '') {
+            lastNameInput.classList.add('is-invalid');
+        } else {
+            lastNameInput.classList.remove('is-invalid');
+            lastNameInput.classList.add('is-valid');
+        }
+    });
+
+    emailInput.addEventListener('input', function () {
+        if (emailInput.value.trim() === '') {
+            emailInput.classList.add('is-invalid');
+        } else {
+            emailInput.classList.remove('is-invalid');
+            emailInput.classList.add('is-valid');
+        }
+    });
+
+    addressInput.addEventListener('input', function () {
+        if (addressInput.value.trim() === '') {
+            addressInput.classList.add('is-invalid');
+        } else {
+            addressInput.classList.remove('is-invalid');
+            addressInput.classList.add('is-valid');
+        }
+    });
+
+    passwordInput.addEventListener('input', function () {
+        if (passwordInput.value.trim() === '') {
+            passwordInput.classList.add('is-invalid');
+        } else {
+            passwordInput.classList.remove('is-invalid');
+            passwordInput.classList.add('is-valid');
+        }
+    });
+
+    confirmPasswordInput.addEventListener('input', function () {
+        if (confirmPasswordInput.value.trim() === '') {
+            confirmPasswordInput.classList.add('is-invalid');
+        } else {
+            confirmPasswordInput.classList.remove('is-invalid');
+            confirmPasswordInput.classList.add('is-valid');
+        }
+    });
+
+    // Validar la casilla de verificación al hacer clic en ella
+    agreeCheckbox.addEventListener('click', function () {
+        agreeCheckbox.classList.toggle('is-invalid');
+    });
+</script>
+
+
+<script>
+
+
+
+
+</script>
+
+
+
+<script>
+
+    function actualizar(id){
+        var nuevoNombre = prompt ("Ingrese un nuevo nombre:")
+        window.location.replace(`http://127.0.0.1:8000/update/${id}/${nuevoNombre}`)
+    }
+
+    function borrar(id){
+        window.location.replace(`http://127.0.0.1:8000/delete/${id}`)
+    }
+
+    $("#agregar").on("click",function( event ){
+        var usuario = $("#usuario").val()
+        alert(`Bienvenido, tu usuario es: ${usuario}`)
+        window.location.replace(`http://127.0.0.1:8000/create/${usuario}`);
+    });
+
+
+</script>
+
+
+</html>

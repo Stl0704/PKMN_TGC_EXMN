@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <title>POKEMON TGC</title>
+</head>
+<style>
+  body {
+    background-image: url('https://img.freepik.com/vector-premium/diseno-banner-abstracto-rayas-negras-amarillas-gris-oscuro-fondo-vector-tecnologia-geometrica_181182-14043.jpg');
+    background-size: cover;
+  }
+
+  .container {
+    background-color: #000000;
+    /* Color de fondo para el div */
+    border-radius: 20px;
+  }
+
+  .login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #000;
+    background-color: #fbff57;
+    height: 70vh;
+    border-radius: 20px;
+  }
+
+  .border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    /* Estilo del borde para el span */
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  #loginForm {
+    margin: 20px;
+
+  }
+
+  .form-group label {
+    color: rgb(0, 0, 0);
+    /* Color del texto del label */
+  }
+
+  .form-control {
+    border-color: rgb(0, 0, 0);
+    /* Color del borde del input */
+  }
+
+  .invalid-feedback {
+    color: red;
+    /* Color del mensaje de error */
+  }
+
+  .form-check-label {
+    color: green;
+    /* Color del texto del checkbox */
+  }
+
+  .btn-primary {
+    background-color: blue;
+    /* Color de fondo del botón */
+    border-color: blue;
+    /* Color del borde del botón */
+  }
+</style>
+
+
+
+<body>
+  <!-- banner1  -->
+  <img
+    src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11427705-3dd3-423a-a8ca-1968b97f1101/d6d4a5k-f4c9b43b-b2fe-4b59-bdc3-ba974fff6c3b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzExNDI3NzA1LTNkZDMtNDIzYS1hOGNhLTE5NjhiOTdmMTEwMVwvZDZkNGE1ay1mNGM5YjQzYi1iMmZlLTRiNTktYmRjMy1iYTk3NGZmZjZjM2IucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pHbSmJIuVrJheeVadShSncEOsTbAvbr9zr12zamcZb0"
+    alt="Banner de ejemplo" style="width:100%;">
+
+  <!-- banner1  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}" style="color: yellow;"><img
+        src="https://cdn.icon-icons.com/icons2/896/PNG/64/pokemon_go_play_game_cinema_film_movie_2_icon-icons.com_69159.png"
+        alt="logo" class="logo-img"> POKEMON TGC
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}" style="color: yellow">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'compra' %}" style="color: yellow">Producto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'carrito' %}" style="color: yellow">Carrito de Compras </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" style="color: yellow">
+            Sesión
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'signin' %}">Iniciar secion</a>
+            <a class="dropdown-item" href="{% url 'signup' %}">Crear cuenta</a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- banner2  COMO JUMBOTRON-->
+
+  <div class="jumbotron jumbotron-fluid"
+    style="background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-negro-degradado_23-2149209060.jpg'); color: white">
+    <div class="container1 text-center">
+      <h1 class="display-4 font-weight-bold">INICIO DE SESION </h1>
+      <p class="lead">Inicia sesion para acceder a tu cuenta y obtener tus cartas favoritas!</p>
+    </div>
+  </div>
+
+  <!-- Formulario inicio sesion -->
+
+  <div class="container">
+    <div class="login-box">
+      <span class="border">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">correo De Usuraio</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            <small id="emailHelp" class="form-text text-muted">El nombre de usuario es su correo con el que se
+              registro.</small>
+            <div class="invalid-feedback">
+              Porfavor ingrese un usuario valido
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" required>
+            <div class="invalid-feedback">
+              Please enter your password.
+            </div>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+      </span>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- footer  -->
+
+  <footer style="background-color: #fbff57;" style=" border-color: black;">
+    <p style="font-size: 20px; font-weight: bold;"><img src="https://cdn-icons-png.flaticon.com/128/3064/3064155.png"
+        alt="" class="logo-img" width="50">COMPRA
+      SEGURA ✓✓✓</p>
+
+    <hr>
+    <div class="footer-icons-container row">
+      <p><a HREF="https://es-la.facebook.com/"> <img src="https://cdn-icons-png.flaticon.com/128/1384/1384005.png"
+            width="30"> </a>
+        <a HREF="https://www.instagram.com/"> <img src="https://cdn-icons-png.flaticon.com/128/1384/1384015.png"
+            width="30"></a>
+        <a HREF="https://twitter.com/"> <img src="https://cdn-icons-png.flaticon.com/128/4494/4494465.png"
+            width="30"></a>
+      </p>
+      <br>
+      <p>Author: Miguel Montero y Mario Fica</p>
+      <br>
+      <p><a href="Correo contacto: pokemontgc@pokemon.pkm">pokemontgc@pokemon.pkm</a></p>
+    </div>
+  </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
+<!-- JS para validez en el inicio de sesion  -->
+
+<script>
+  const loginForm = document.getElementById('loginForm');
+  const emailInput = document.getElementById('exampleInputEmail1');
+  const passwordInput = document.getElementById('exampleInputPassword1');
+
+  loginForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (validateLoginForm()) {
+      // Aquí puedes realizar la lógica de inicio de sesión, como enviar una solicitud al servidor
+      // o redirigir al usuario a otra página.
+      console.log('Login successful');
+    }
+  });
+
+  function validateLoginForm() {
+    let isValid = true;
+
+    if (emailInput.value.trim() === '') {
+      isValid = false;
+      emailInput.classList.add('is-invalid');
+    } else {
+      emailInput.classList.remove('is-invalid');
+      emailInput.classList.add('is-valid');
+    }
+
+    if (passwordInput.value.trim() === '') {
+      isValid = false;
+      passwordInput.classList.add('is-invalid');
+    } else {
+      passwordInput.classList.remove('is-invalid');
+      passwordInput.classList.add('is-valid');
+    }
+
+    return isValid;
+  }
+</script>
+
+
+</html>
