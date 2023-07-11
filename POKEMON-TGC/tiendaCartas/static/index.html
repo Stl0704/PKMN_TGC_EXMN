@@ -10,6 +10,33 @@
     <title>POKEMON TGC</title>
 </head>
 
+<style>
+    /* FONDO PARA TODA LA PAGINA */
+    body {
+        background-image: url('https://img.freepik.com/vector-premium/diseno-banner-abstracto-rayas-negras-amarillas-gris-oscuro-fondo-vector-tecnologia-geometrica_181182-14043.jpg');
+        background-size: cover;
+    }
+
+    /*   CONFIGURACION DE LAS CARDS PROMOCIONALES CSS   */
+
+    nav .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .custom-container {
+        background-color: #000000;
+        /* Color de fondo del contenedor */
+        background-image: url('ruta_de_la_imagen.jpg');
+        /* URL de la imagen de fondo */
+        background-size: cover;
+        color: #333;
+        /* Color de fuente */
+        padding: 20px;
+        /* Espaciado interno */
+    }
+</style>
+
 <body>
     <!-- banner1  -->
     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11427705-3dd3-423a-a8ca-1968b97f1101/d6d4a5k-f4c9b43b-b2fe-4b59-bdc3-ba974fff6c3b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzExNDI3NzA1LTNkZDMtNDIzYS1hOGNhLTE5NjhiOTdmMTEwMVwvZDZkNGE1ay1mNGM5YjQzYi1iMmZlLTRiNTktYmRjMy1iYTk3NGZmZjZjM2IucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pHbSmJIuVrJheeVadShSncEOsTbAvbr9zr12zamcZb0"
@@ -29,7 +56,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}" style="color: yellow">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'home' %}" style="color: yellow">Inicio <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'compra' %}" style="color: yellow">Producto</a>
@@ -58,20 +86,60 @@
 
     <!-- banner2  COMO JUMBOTRON-->
 
-
-    <div class="jumbotron jumbotron-fluid" style="background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-negro-degradado_23-2149209060.jpg'); color: white">
+    <nav>
         <div class="container">
-          <h1 class="display-4">VENTA DE CARTAS POKEMON</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit rerum placeat dignissimos laboriosam necessitatibus exercitationem, est ea autem numquam vitae nesciunt quaerat, animi amet! Dolorem blanditiis ducimus temporibus consequuntur delectus?</p>
+            <img src="https://i.imgur.com/oJkBNgX.jpg" alt="Imagen de ejemplo">
+            <h1 class="display-4"></h1>
         </div>
-      </div>
-      
-      
+    </nav>
 
 
+    <!--   BREADCRUMB   -->
+
+    <div class=" text-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center breadcrumb"
+                style="background-image: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-negro-degradado_23-2149209060.jpg');">
+                <li class="breadcrumb-item active" aria-current="page" style="color: rgb(10, 10, 10);">
+                    <h2 style="color: white;">OFERTAS EN NUESTROS PRODUCTOS!</h2>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- CARD PROMOCIONAL-->
 
 
-
+    <div class="container custom-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://falabella.scene7.com/is/image/Falabella/6688938_1" class="card-img-top"
+                            alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Mazo de Cartas Edicion SUN & MOON </h5>
+                        <p class="card-text">Mazo de cartas Pokemon TGC</p>
+                        <a href="{% url 'compra' %}" class="btn btn-primary">IR A COMPRAR!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://home.ripley.cl/store/Attachment/WOP/D175/2000393298471/2000393298471_2.jpg"
+                            class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Mazo de Cartas Edicion SUN & MOON </h5>
+                        <p class="card-text">Mazo de cartas Pokemon TGC</p>
+                        <a href="{% url 'compra' %}" class="btn btn-primary">IR A COMPRAR!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- footer  -->

@@ -10,7 +10,7 @@
   <title>POKEMON TGC</title>
 </head>
 
-<body>
+<body onload="actualizarTotal()">
   <!-- banner1  -->
   <img
     src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11427705-3dd3-423a-a8ca-1968b97f1101/d6d4a5k-f4c9b43b-b2fe-4b59-bdc3-ba974fff6c3b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzExNDI3NzA1LTNkZDMtNDIzYS1hOGNhLTE5NjhiOTdmMTEwMVwvZDZkNGE1ay1mNGM5YjQzYi1iMmZlLTRiNTktYmRjMy1iYTk3NGZmZjZjM2IucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pHbSmJIuVrJheeVadShSncEOsTbAvbr9zr12zamcZb0"
@@ -72,36 +72,34 @@
 
   <!-- LISTADO GPT-->
 
+  <form method="POST" action="{% url 'listadoCarrito' %}">
+    {% csrf_token %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <td scope="col">NOMBRE</td>
+          <th scope="col">PRECIO TOTAL</th>
+          <th scope="col">ACCIONES</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for venta in objetos_agregados %}
+        <tr>
+          <td>{{ venta.idCarta }}</td>
+          <td>{{ venta.nombre }}</td>
+          <td>{{ venta.preciototal }}</td>
+          <td><button onclick="borrar({{ venta.idCarta }})" class="btn btn-danger">Borrar Registro</button></td>
+          <td><button onclick="actualizar({{ venta.idCarta }})" class="btn btn-warning">Editar Registro</button></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
-<!-- FORMULARIO PARA AGREGAR OBJETOS AL CARRITO -->
-<form method="POST" action="{% url 'agregar' %}">
-  {% csrf_token %}
-  <input type="hidden" name="producto" value="{{ producto }}">
-  <input type="hidden" name="valor" value="{{ valor }}">
-  <button type="submit" class="btn btn-danger">Agregar al carrito</button>
-</form>
-
-<!-- TABLA DE OBJETOS AGREGADOS -->
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">PRECIO TOTAL</th>
-      <th scope="col">ACCIONES</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for objeto in objetos_agregados %}
-    <tr>
-      <td>{{ objeto.idCarta }}</td>
-      <td>{{ objeto.preciototal }}</td>
-      <td><button onclick="borrar({{ objeto.idCarta }})" class="btn btn-danger">Borrar Registro</button></td>
-      <td><button onclick="actualizar({{ objeto.idCarta }})" class="btn btn-warning">Editar Registro</button></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <button type="submit" class="btn btn-danger" href="{% url 'compra' %}">Confirmar compra!</button>
+    <button type="submit" class="btn btn-danger" href="{% url 'compra' %}">Seguir comprando!</button>
+  </form>
 
 
 
@@ -136,9 +134,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
+
+
 <script>
+  function actualizarTotal() {
+    var total = 0;
+    var rows = document.querySelectorAll('.cart-row');
 
+    rows.forEach(function (row) {
+      var precio = parseFloat(row.dataset.precio);
+      total += precio;
+    });
 
+    document.getElementById('total').value = total.toFixed(2);
+  }
 </script>
+
+
 
 </html>

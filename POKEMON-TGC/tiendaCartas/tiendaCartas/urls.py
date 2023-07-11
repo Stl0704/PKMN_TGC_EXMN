@@ -24,12 +24,19 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('signin/', views.signin, name='signin'),
     path('compra/', views.compra, name='compra'),
+    path('carrito/', views.carrito, name='carrito'),
+
+    # CRUD USUARIO
     path('create/<str:nuevoUsuario>/', views.create),
     path('delete/<str:idUsuario>/', views.delete),
     path('update/<str:idUsuario>/<str:nuevoNombre>/', views.update),
-    path('carrito/', views.carrito, name='carrito'),
-    # GPT
+
+    # CRUD CARTA ANTES DEL CARRITO DE COMPRAS
     path('agregar/', views.agregarCarro, name='agregar'),
     path('listar/', views.mostrarObjetosAgregados, name='listar'),
-    path('eliminar-carta/', views.eliminarCarta, name='eliminar_carta'),
+    path('eliminarCarta/', views.eliminarCarta, name='eliminar_carta'),
+
+    # URLS PARA INTERFAZ DE LISTADO_CARRITO
+    path('listadoCarrito/', views.listadoCarrito, name='listadoCarrito'),
+
 ]

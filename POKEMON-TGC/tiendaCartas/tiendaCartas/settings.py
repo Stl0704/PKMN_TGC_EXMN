@@ -123,4 +123,16 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+
+
+# Configuración del motor de sesión
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Configuración de las cookies de sesión seguras
+SESSION_COOKIE_SECURE = True
+
+
+
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
